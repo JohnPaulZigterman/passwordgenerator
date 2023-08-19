@@ -51,7 +51,19 @@ function generatePassword() {
     allchars = allchars.concat(special.library);
   }
 
-  var passlength = prompt("Enter Password Length, 8-128", 12);
+  function getpasslength() {
+    var digits = prompt("Enter Password Length, 8-128", 12);
+    if (typeof digits != Number) {
+      getpasslength;
+    } else if (digits < 8) {
+      getpasslength();
+    } else if (digits > 128) {
+      getpasslength();
+    }
+    return digits;
+  }
+
+  var passlength = getpasslength();
 
   while (passlength > passgen.length) {
     passgen += allchars[Math.floor(Math.random() * allchars.length)];
