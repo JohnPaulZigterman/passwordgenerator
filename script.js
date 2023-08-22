@@ -65,24 +65,18 @@ function generatePassword() {
   }
 
   //sets the getpasslength() function
-
   function getpasslength() {
 
-    //prompts for the digits variable to establish password length
-    var digits = prompt("Enter Password Length, 8-128", 12);
+        //prompts for the digits variable to establish password length 
+    var digits = prompt("Enter Password Length (8-128)", 12); 
+        //checks that digits variable is a number between 8-128
+    while (isNaN(digits) || digits < 8 || digits > 128) { 
+      digits = prompt("Enter a valid Password Length (8-128)", 12); 
+    } 
 
-    //checks that digits variable is a number between 8-128
-    if (typeof digits != Number) {
-      getpasslength;
-    } else if (digits < 8) {
-      getpasslength();
-    } else if (digits > 128) {
-      getpasslength();
-    }
-
-    //returns the digits variable's numerical value to the getpasslength() function
-    return digits;
-  }
+     //returns the digits variable's numerical value to the getpasslength() function
+    return digits; 
+  } 
 
   //sets passlength variable to the value kicked up by getpasslength() function
   var passlength = getpasslength();
